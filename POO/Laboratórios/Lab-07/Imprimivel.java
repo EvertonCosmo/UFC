@@ -1,0 +1,4 @@
+interface Imprimivel{
+
+    void imprimeDados();
+}
