@@ -1,7 +1,3 @@
-# Pilha 
-    
-<ul>
-    <li>Pilha com vetor</li>
-    <li>Pilha com lista</li>
-    
-<ul>
+# UFC 
+
+Repositório com códigos do curso de ciência da computação(UFC - Campus Crateús)
