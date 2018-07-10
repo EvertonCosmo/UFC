@@ -8,12 +8,12 @@ public class Account{
 	private String name;
 	private double balance;
 	private boolean status;
-	private boolean special;
+	private String special;
 	private double limit;
 
 	private ArrayList<Movement> drives = new ArrayList<>();
 
-	public Account(Integer number, String name, double balance, boolean status, boolean special, double limit) {
+	public Account(Integer number, String name, double balance, boolean status, String special, double limit) {
 		this.number = number;
 		this.name = name;
 		this.balance = balance;
@@ -52,6 +52,10 @@ public class Account{
 	public double getLimit() {
 		return limit;
 	}
+	public String getSpecial() {
+		return special;
+	}
+	
 
 	public ArrayList<Movement> getDrives() {
 		return drives;
@@ -61,8 +65,26 @@ public class Account{
 
 	@Override
 	public String toString() {
+		String status;
+		String specialS;
+		
+		if(special.contains("s") || special.contains("S")) {
+			specialS = "especial";
+		}
+		else { 
+			specialS = "normal";
+		}
+		
+		if(this.status == true) { 
+			status = "ativada";
+		}
+		
+		else { 
+			status = "desativada";
+		}
+		
 		return "Account [number=" + number + ", name=" + name + ", balance=" + balance + ", status=" + status
-				+ ", special=" + special + ", limit=" + limit + "]";
+				+ ", special=" + specialS + ", limit=" + limit + "]";
 	}
 
 
