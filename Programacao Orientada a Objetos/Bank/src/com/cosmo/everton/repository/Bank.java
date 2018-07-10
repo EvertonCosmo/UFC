@@ -16,7 +16,7 @@ public abstract class Bank  {
 		return Accounts;
 	}
 
-	public static void createAccount(Account c) {
+	public  static void createAccount(Account c) {
 
 		try {
 
@@ -33,13 +33,16 @@ public abstract class Bank  {
 	public static void removeAccount(Integer number) {
 
 		if(Accounts.isEmpty()) {
-			System.out.println("Não existem contas cadastradas ainda");
+			System.err.println("Não existem contas cadastradas ainda");
 			return;
 		}
 
 		Account account = searchAccount(number);
+		if(account == null) {
+			System.err.println("Conta não encontrada!");
+		}
 		if(!account.isStatus()) {
-			System.out.println("A conta já foi removida/desativada");
+			System.err.println("A conta já foi removida/desativada");
 			return ;
 		}
 
@@ -72,20 +75,20 @@ public abstract class Bank  {
 		System.out.println("=== CONTAS ATIVAS E INATIVAS === ");
 
 		if(Accounts.isEmpty()) {
-			System.out.println("Não possui contas cadastradas ainda");
+			System.err.println("Não possui contas cadastradas ainda");
 			return;
 		}
 
 		System.out.println("Ativas: ");
 		for (Account account : Accounts) {
 			if(account.isStatus()) // ativa
-				System.out.println("Número: "+ account.getNumber()+" Titular: "+account.getName());
+				System.out.println(account.toString());
 
 		}
 		System.out.println("Inativas: ");
 		for (Account account : Accounts) {
 			if(!account.isStatus()) // inativa
-				System.out.println("Número: "+ account.getNumber()+" Titular: "+account.getName());
+				System.out.println(account.toString());
 		}
 
 	}
@@ -98,50 +101,45 @@ public abstract class Bank  {
 
 	public static void draw(Account c, double value){
 
-
 		if(c.getBalance() == 0) { 
 			System.out.println("saldo igual a 0, saque indisponível");
 			return;
 		}
 
+	
+		try {
+			if (c.getBalance() >= value) {
+				c.setBalance(c.getBalance()-value);
+				System.out.println("sucess in draw ");
+				c.addMovement(new Movement("saque realizado", value,"débito" ));
 
-		if(c.getBalance() == 0) {
-			if(value <= c.getLimit()) // revisar
-				c.setBalance(c.getBalance()+value);
-
+			}else
+				throw new IllegalArgumentException();
+		}catch(Exception e) {
+			System.err.println("Saldo insuficiente");
 		}
 
-		//if (c.getBalance() >= value) {
-		c.setBalance(c.getBalance()-value);
-
-		System.out.println("sucess in draw ");
-		c.addMovement(new Movement("saque realizado", value,"crédito" ));
-
-		//	}else
-		//	throw new IllegalArgumentException();
-		//}catch(Exception e) {
-		//	System.out.println("Saldo insuficiente");
-		//}
 	}
 
 
 	public static void deposit(Account c, double value) {
 
-
+		if(value <= 0) {
+			System.out.println("Impossível depositar valor negativo ");
+			return;
+		}
 		try {
-
-
 			if(value < c.getBalance() ) {
 				c.setBalance(c.getBalance()+value);
 				System.out.println("sucess in deposit ");
-				c.addMovement(new Movement("deposito realizado", value,"débito"));
+				c.addMovement(new Movement("deposito realizado", value,"crédito"));
 			}else
 				throw new IllegalArgumentException();
 		}catch(Exception e) {
 			System.out.println("Saldo insuficiente");
 		}
 	}
-	
+
 
 	public static void balanceIssue(Integer number) {
 		String status;
@@ -159,16 +157,21 @@ public abstract class Bank  {
 		else 
 			status = "desativada";
 
-
-
-
 		System.out.println("=== EMISSÃO DE SALDO ===  ");
 		System.out.println("Conta: "+c.getNumber());
 		System.out.println("Titular: "+c.getName());
 		System.out.println("Saldo: "+c.getBalance());
 		System.out.println("Estado: "+status);
-		System.out.println("=== EMISSÃO DE EXTRATO ===  ");
 
+	}
+	public static void ExtractIssue(Integer number) {
+		Account c = searchAccount(number);
+
+		if(c == null ) {
+			System.out.println("Erro! conta não encontrada");
+			return;
+		}
+		System.out.println("=== EMISSÃO DE EXTRATO ===  ");
 		if(c.getDrives().isEmpty()) {
 			System.out.println("Não existem movimentações nessa conta");
 			return;
@@ -184,15 +187,17 @@ public abstract class Bank  {
 	public static void transferValue(Account c1,Account c2, double value) {
 		//			 1 -> 2 ; draw 1 -> deposit 2 
 
+		if(value <= 0) {
+			System.out.println("Impossível transferir valor 0 ou negativo ");
+			return;
+		}
 
 		draw(c1, value);
+
 		deposit(c2, value);
 
 		System.out.println("Sucess in transfer");
-
-
-
-
+		
 	}
 
 

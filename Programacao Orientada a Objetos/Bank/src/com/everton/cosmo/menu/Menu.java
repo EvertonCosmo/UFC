@@ -1,6 +1,7 @@
 package com.everton.cosmo.menu;
 
-
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -9,21 +10,27 @@ import java.util.Scanner;
 import com.cosmo.everton.entitys.Account;
 import com.cosmo.everton.repository.Bank;
 
-public class Menu {
+public class Menu extends TreatmentInput{
 	private static Scanner scan = new Scanner(System.in);
-
-	public static void menuInitial() {
+	
+	public static void menuInitial() throws ParseException, IOException {
+		//clearScreen();
+		System.out.println(systemName()); 
 		int op=0;
 		do {
-			System.out.println("=== BANK SYSTEM ====");
-			System.out.println("1 -> ADICIONAR CONTAS ");
-			System.out.println("2 -> BUSCAR CONTAS E REALIZAR SAQUES/DEPÓSITOS");
-			System.out.println("3 -> REALIZAR TRANSFERÊNCIAS");
-			System.out.println("4 -> VER SALDOS E EXTRATOS");
-			System.out.println("5 -> EXCLUIR CONTAS");
-			System.out.println("6 -> LISTAR CONTAS ATIVAS E INATIVAS");
-			System.out.println("7 -> EXIT");
-			System.out.println(">>");
+			System.out.println("||=======================================||");
+			System.out.println("||       === BANK SYSTEM ====            ||");
+			System.out.println("|| (1) -> ADICIONAR CONTAS               ||");
+			System.out.println("|| (2) -> SACAR                          ||");
+			System.out.println("|| (3) -> DEPOSITAR                      ||");
+			System.out.println("|| (4) -> REALIZAR TRANSFERÊNCIAS        ||");
+			System.out.println("|| (5) -> EMITIR SALDO                   ||");
+			System.out.println("|| (6) -> EMITIR EXTRATO                 ||");
+			System.out.println("|| (7) -> EXCLUIR CONTAS                 ||");
+			System.out.println("|| (8) -> LISTAR CONTAS                  ||");
+			System.out.println("|| (9) -> EXIT                           ||");
+			System.out.println("||=======================================||");
+			System.out.print(">>");
 
 			try {
 				op = scan.nextInt();
@@ -39,220 +46,177 @@ public class Menu {
 			case 1:
 				int number = readDataInteger("Digite o número da conta: ");
 
-				Account d = Bank.searchAccount(number);
+				Account d = Bank.searchAccount(number); // Search Account 
+
 				if(d == null) {
-
-
+					
 					String name = readDataString("Digite o nome do titular da conta: ");
+					
 					while(containsNumber(name)) {
+						
 						System.out.println("apenas letras no nome do titular");
 						name = readDataString("Digite o nome do titular da conta: ");
 					}
 
-					double balance = readDataDouble("Digite o saldo da conta: ");
+					double balance = parseDouble(readDataString("Digite o saldo da conta: "));
 
+					String special = readDataString("Conta especial ? (S or N): ");
 
+					if(special.length() == 1) {
 
-					//boolean status = readDataBoolean("Digite o status da conta(ativa ou inativa) true = ativa \\ false = inativa");
+						if(special.charAt(0) == 'S' || special.charAt(0) == 's' || special.charAt(0) =='N' || special.charAt(0) =='n') {
 
-					boolean special = readDataBoolean("Conta especial ? (true ou false): ");
+							Bank.createAccount(new Account(number, name, balance, true, special, parseDouble(readDataString("Digite o limite da conta: "))));
+							break;
 
-					double limit = readDataDouble("Digite o limite da conta: ");
+						}else {
+							System.err.println("Valor inválido. digite (S) ou (N)");
+						}
+					}
 
-					Bank.createAccount(new Account(number, name, balance, true, special, limit));
 
 				}else {
-					System.out.println("Já existe uma conta com esse número");
+					System.err.println("Já existe uma conta com esse número");
 				}
 				break;
 
 
 			case 2:
+
 				if(Bank.getAccounts().isEmpty()) {
-					System.out.println("Não existem contas cadastradas ainda");
+					System.err.println("Não existem contas cadastradas ainda");
 					menuInitial();
 				}
 
-				int numberDraworDeposit = readDataInteger("Digite o número da conta para depositar ou sacar ");
 
-
-				Account c = Bank.searchAccount(numberDraworDeposit); // Search account for action(Draw or deposit) 
+				Account c = Bank.searchAccount(readDataInteger("Digite o número da conta sacar ")); 
 
 				if(c == null) {
-					System.out.println("erro! conta não encontrada ");
+					System.err.println("erro! conta não encontrada ");
 					menuInitial();
+					
 				}else if(!c.isStatus()) {
-					System.out.println("Conta removida/desativada, impossível movimentar");
+					System.err.println("Conta removida/desativada, impossível movimentar");
 					menuInitial();
 				}
 
-
-				System.out.println("Saque[1],Depositar[2]: ");
-
-				int valueRead = readDataInteger("Digite: ");
-
-				switch(valueRead) {
-				case 1:
-					double valueDoubleDraw = readDataInteger("valor a sacar");
-					Bank.draw(c, valueDoubleDraw);
-					break;
-				case 2:
-					double valueDoubleDeposit = readDataDouble("valor a depositar");
-					Bank.deposit(c, valueDoubleDeposit);
-					break;
-				default:	
-					System.out.println("opção inválida");
-				}
-
+				Bank.draw(c, parseDouble(readDataString("Valor: ")));
 				break;
+
 			case 3:
 
 				if(Bank.getAccounts().isEmpty()) {
 					System.out.println("Não existem contas cadastradas ainda");
 					menuInitial();
 				}
+				// Search account for action(Draw or deposit) 
+				Account account = Bank.searchAccount(readDataInteger("Digite o número da conta sacar ")); 
+
+				if(account == null) {
+					System.err.println("erro! conta não encontrada ");
+					menuInitial();
+				}else if(!account.isStatus()) {
+					System.err.println("Conta removida/desativada, impossível movimentar");
+					menuInitial();
+				}
+
+				Bank.draw(account, parseDouble(readDataString("Valor: ")));
+				break;
+			case 4:
+
+				if(Bank.getAccounts().isEmpty()) {
+					System.err.println("Não existem contas cadastradas ainda");
+					menuInitial();
+				}
 
 				int numberAccount = readDataInteger("Digite o número da conta de origem");
-
-				int numberAccount2 = readDataInteger("Digite o número da conta de destino");
-
-				if(numberAccount == numberAccount2) {
-					System.out.println("Operação impossível com a mesma conta !"); // 
-					return;
-				}
 				Account c1 = Bank.searchAccount(numberAccount);
 
-				if(c1 == null) 
-					System.out.println("conta de origem não existe");
+				if(c1 == null) {
+					System.err.println("conta de origem não existe");
+					menuInitial();
+				}
 				else 
 					if(!c1.isStatus()) {
-						System.out.println("Conta removida/desativa, impossível movimentar");
+						System.err.println("Conta removida/desativa, impossível movimentar");
 						menuInitial();
 					}
-
+				int numberAccount2 = readDataInteger("Digite o número da conta de destino");
 				Account c2 = Bank.searchAccount(numberAccount2);
 
-				if(c2 == null)
-					System.out.println("conta de destino não existe");
+				if(c2 == null) {
+					System.err.println("conta de destino não existe");
+					menuInitial();
+				}
 				else 
 					if(!c2.isStatus()) {
-						System.out.println("Conta removida/desativa, impossível movimentar");
+						System.err.println("Conta removida/desativa, impossível movimentar");
 						menuInitial();
 					}
 
-
-				double valueTransfer = readDataDouble("valor: ");
-
-				Bank.transferValue(c1, c2, valueTransfer);
-
-
-
-				break;
-
-
-			case 4:
-				if(Bank.getAccounts().isEmpty()) {
-					System.out.println("Não existem contas cadastradas ainda");
+				if(c1 == c2) {
+					System.err.println("Operação impossível com a mesma conta !"); // 
 					menuInitial();
 				}
 
-				int numberIssue = readDataInteger("Digite o número da conta para emitir saldo e extrato ");
+				//double valueTransfer = ;
 
-				Bank.balanceIssue(numberIssue);
-
-
+				Bank.transferValue(c1, c2, parseDouble(readDataString("Valor: ")));
+				
 				break;
+
 
 			case 5:
+
 				if(Bank.getAccounts().isEmpty()) {
-					System.out.println("Não existem contas cadastradas ainda");
+					System.err.println("Não existem contas cadastradas ainda");
 					menuInitial();
 				}
 
+				Bank.balanceIssue(readDataInteger("Digite o número da conta para emitir saldo "));
 
-				int numberRemove = readDataInteger("Digite o número da conta para remover ");
-
-				Bank.removeAccount(numberRemove);
 				break;
 
-			case 6: Bank.showAccounts();break;
+			case 6:
 
-			case 7: System.exit(0);
+				if(Bank.getAccounts().isEmpty()) {
+					System.err.println("Não existem contas cadastradas ainda");
+					menuInitial();
+				}
+				
+				Bank.ExtractIssue(readDataInteger("Digite o número da conta para emitir extrato "));
+				break;
 
+			case 7:
+
+				if(Bank.getAccounts().isEmpty()) {
+					System.err.println("Não existem contas cadastradas ainda");
+					menuInitial();
+				}
+				
+				Bank.removeAccount(readDataInteger("Digite o número da conta para remover "));
+				break;
+			case 8:
+
+				Bank.showAccounts();break;
+
+			case 9:
+
+				System.exit(0);
 			default:
-				System.out.println("Erro!, valor indisponível");Menu.menuInitial();
+
+				System.err.println("Erro!, valor indisponível\n");Menu.menuInitial();
 
 			}
 		}while(op !=0);
 
 		scan.close();
 	}
-
-
-
-
-	// tratamento de entradas
-
-
-
-	public static int readDataInteger(String message) {
-		System.out.println(message);
-		int value = -1;
-		try {
-			value =scan.nextInt();
-		}catch(InputMismatchException e) {
-			System.out.println("valor inválido. Digite outro");
-		}
-		scan.nextLine();
-		while(value == -1)
-			value = readDataInteger(message);
-		return value;
-	}
-
-
-	public static boolean containsNumber(String s) {
-
-		boolean value=true;
-		for (int i = 0; i < s.length(); i++) {
-			if(!Character.isDigit(s.charAt(i))) {
-				value = false;
-			}else {
-				value = true;
-			}
-		}
-		return value;
-	}
-	public static String readDataString (String message) {
-		System.out.println(message);
-		return scan.nextLine();
-	}
-
-	public static double readDataDouble(String message) {
-		System.out.println(message);
-		double value = -1.0;
-		try {
-			
-			value = scan.nextDouble();
-		
-		}catch(InputMismatchException e) {
-			System.out.println("valor inválido. Digite outro");
-		}
-		
-		scan.nextLine();
-		
-		while(value == -1.0)
-			value = readDataInteger(message);
-		return value;
-	}
-
-
-	public static boolean readDataBoolean(String message) {
-		System.out.println(message);
-		return scan.nextBoolean();
-
-	}
-	public static void clearScreen() {  
-	    System.out.print("\033[H\033[2J");  
-	    System.out.flush();  
-	}  
 }
+
+
+
+// tratamento de entradas
+
+
+
