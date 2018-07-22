@@ -1,3 +1,4 @@
 # UFC 
 
-Repositório com códigos do curso de ciência da computação(UFC - Campus Crateús)
+
+Repository with codes of Computer Science Course (UFC - Campus Crateús)
