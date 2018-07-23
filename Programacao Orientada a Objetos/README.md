@@ -1,5 +1,5 @@
 # UFC
-<i>Atividades da disciplina de Programação Orientada a Objetos</i>
+Repository with codes of Computer Science Course (UFC - Campus Crateús)
 
 
 
