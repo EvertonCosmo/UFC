@@ -10,9 +10,10 @@ import java.util.Scanner;
 import com.cosmo.everton.entitys.Account;
 import com.cosmo.everton.repository.Bank;
 
+
 public class Menu extends TreatmentInput{
 	private static Scanner scan = new Scanner(System.in);
-	
+
 	public static void menuInitial() throws ParseException, IOException {
 		//clearScreen();
 		System.out.println(systemName()); 
@@ -49,11 +50,11 @@ public class Menu extends TreatmentInput{
 				Account d = Bank.searchAccount(number); // Search Account 
 
 				if(d == null) {
-					
-					String name = readDataString("Digite o nome do titular da conta: ");
-					
-					while(containsNumber(name)) {
-						
+
+					String name = readDataString("Digite o nome do titular da conta,primeira letra maiúscula : ");
+
+					while(!validaNome(name)) {
+
 						System.out.println("apenas letras no nome do titular");
 						name = readDataString("Digite o nome do titular da conta: ");
 					}
@@ -63,15 +64,16 @@ public class Menu extends TreatmentInput{
 					String special = readDataString("Conta especial ? (S or N): ");
 
 					if(special.length() == 1) {
-
-						if(special.charAt(0) == 'S' || special.charAt(0) == 's' || special.charAt(0) =='N' || special.charAt(0) =='n') {
-
+						special = special.toLowerCase();
+						if(special.equalsIgnoreCase("s") || special.equalsIgnoreCase("n")) {
 							Bank.createAccount(new Account(number, name, balance, true, special, parseDouble(readDataString("Digite o limite da conta: "))));
 							break;
 
 						}else {
 							System.err.println("Valor inválido. digite (S) ou (N)");
 						}
+					}else {
+						System.err.println("digite somente S ou N ");
 					}
 
 
@@ -83,10 +85,7 @@ public class Menu extends TreatmentInput{
 
 			case 2:
 
-				if(Bank.getAccounts().isEmpty()) {
-					System.err.println("Não existem contas cadastradas ainda");
-					menuInitial();
-				}
+				Bank.checkAccount();
 
 
 				Account c = Bank.searchAccount(readDataInteger("Digite o número da conta sacar ")); 
@@ -94,7 +93,7 @@ public class Menu extends TreatmentInput{
 				if(c == null) {
 					System.err.println("erro! conta não encontrada ");
 					menuInitial();
-					
+
 				}else if(!c.isStatus()) {
 					System.err.println("Conta removida/desativada, impossível movimentar");
 					menuInitial();
@@ -105,12 +104,9 @@ public class Menu extends TreatmentInput{
 
 			case 3:
 
-				if(Bank.getAccounts().isEmpty()) {
-					System.out.println("Não existem contas cadastradas ainda");
-					menuInitial();
-				}
+				Bank.checkAccount();
 				// Search account for action(Draw or deposit) 
-				Account account = Bank.searchAccount(readDataInteger("Digite o número da conta sacar ")); 
+				Account account = Bank.searchAccount(readDataInteger("Digite o número da conta para depositar ")); 
 
 				if(account == null) {
 					System.err.println("erro! conta não encontrada ");
@@ -120,17 +116,13 @@ public class Menu extends TreatmentInput{
 					menuInitial();
 				}
 
-				Bank.draw(account, parseDouble(readDataString("Valor: ")));
+				Bank. deposit(account, parseDouble(readDataString("Valor: ")));
 				break;
 			case 4:
+				Bank.checkAccount();
 
-				if(Bank.getAccounts().isEmpty()) {
-					System.err.println("Não existem contas cadastradas ainda");
-					menuInitial();
-				}
-
-				int numberAccount = readDataInteger("Digite o número da conta de origem");
-				Account c1 = Bank.searchAccount(numberAccount);
+				// int numberAccount
+				Account c1 = Bank.searchAccount(readDataInteger("Digite o número da conta de origem"));
 
 				if(c1 == null) {
 					System.err.println("conta de origem não existe");
@@ -141,8 +133,8 @@ public class Menu extends TreatmentInput{
 						System.err.println("Conta removida/desativa, impossível movimentar");
 						menuInitial();
 					}
-				int numberAccount2 = readDataInteger("Digite o número da conta de destino");
-				Account c2 = Bank.searchAccount(numberAccount2);
+			//	int numberAccount2 
+				Account c2 = Bank.searchAccount(readDataInteger("Digite o número da conta de destino"));
 
 				if(c2 == null) {
 					System.err.println("conta de destino não existe");
@@ -161,39 +153,29 @@ public class Menu extends TreatmentInput{
 
 				//double valueTransfer = ;
 
-				Bank.transferValue(c1, c2, parseDouble(readDataString("Valor: ")));
-				
+				Bank.transferValue(c1, c2, parseDouble(readDataString("Valor : ")));
+
 				break;
 
 
 			case 5:
 
-				if(Bank.getAccounts().isEmpty()) {
-					System.err.println("Não existem contas cadastradas ainda");
-					menuInitial();
-				}
+				Bank.checkAccount();
 
-				Bank.balanceIssue(readDataInteger("Digite o número da conta para emitir saldo "));
+				Bank.balanceIssue(readDataInteger("Digite o número da conta para emitir saldo: "));
 
 				break;
 
 			case 6:
 
-				if(Bank.getAccounts().isEmpty()) {
-					System.err.println("Não existem contas cadastradas ainda");
-					menuInitial();
-				}
-				
+				Bank.checkAccount();
 				Bank.ExtractIssue(readDataInteger("Digite o número da conta para emitir extrato "));
 				break;
 
 			case 7:
 
-				if(Bank.getAccounts().isEmpty()) {
-					System.err.println("Não existem contas cadastradas ainda");
-					menuInitial();
-				}
-				
+				Bank.checkAccount();
+
 				Bank.removeAccount(readDataInteger("Digite o número da conta para remover "));
 				break;
 			case 8:
@@ -201,7 +183,6 @@ public class Menu extends TreatmentInput{
 				Bank.showAccounts();break;
 
 			case 9:
-
 				System.exit(0);
 			default:
 
@@ -215,8 +196,6 @@ public class Menu extends TreatmentInput{
 }
 
 
-
-// tratamento de entradas
 
 
 

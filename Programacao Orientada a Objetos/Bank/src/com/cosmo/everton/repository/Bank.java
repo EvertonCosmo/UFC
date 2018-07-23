@@ -1,14 +1,17 @@
 package com.cosmo.everton.repository;
 
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 
 import com.cosmo.everton.entitys.Account;
 import com.cosmo.everton.entitys.Movement;
+import com.everton.cosmo.menu.Menu;
 
 public abstract class Bank  {
 
-	private static  ArrayList <Account> Accounts = new ArrayList<>();
+	private static  ArrayList <Account> Accounts = new ArrayList<>();	
 
 
 
@@ -47,7 +50,7 @@ public abstract class Bank  {
 		}
 
 		account.setStatus(false);
-		System.out.println("sucess in remove !");
+		System.out.println("sucess in remove account !");
 
 	}
 
@@ -58,7 +61,6 @@ public abstract class Bank  {
 	public static Account searchAccount(Integer number) {
 
 		if(Accounts.isEmpty()) {
-			//System.out.println("Não possui contas cadastradas");
 			return null;
 		}
 
@@ -106,7 +108,7 @@ public abstract class Bank  {
 			return;
 		}
 
-	
+
 		try {
 			if (c.getBalance() >= value) {
 				c.setBalance(c.getBalance()-value);
@@ -178,11 +180,13 @@ public abstract class Bank  {
 		}
 		//		System.out.println(c.getDrives()); using collections 
 
-		Object[] a =  c.getDrives().toArray();
+		//		Object[] a =  c.getDrives().toArray();
+		//
+		//		for (int i = 0; i < a.length; i++) {
+		//			System.out.println(a[i]);
+		//		}
 
-		for (int i = 0; i < a.length; i++) {
-			System.out.println(a[i]);
-		}
+		c.getDrives().forEach (System.out::println); 
 	}
 	public static void transferValue(Account c1,Account c2, double value) {
 		//			 1 -> 2 ; draw 1 -> deposit 2 
@@ -197,9 +201,19 @@ public abstract class Bank  {
 		deposit(c2, value);
 
 		System.out.println("Sucess in transfer");
-		
+
 	}
 
-
+	// checks if there are already accounts in the bank
+	public static void checkAccount() {
+		if(Bank.getAccounts().isEmpty()) {
+			System.err.println("Não existem contas cadastradas ainda");
+			try {
+				Menu.menuInitial();
+			} catch (ParseException | IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 
 }
