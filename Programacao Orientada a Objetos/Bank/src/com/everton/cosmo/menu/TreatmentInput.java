@@ -9,7 +9,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public abstract class TreatmentInput {
-	
+
 	private static Scanner scan = new Scanner(System.in);
 
 	protected static int readDataInteger(String message) {
@@ -27,20 +27,22 @@ public abstract class TreatmentInput {
 	}
 
 
-	protected static boolean containsNumber(String s) {
+	protected static boolean validaNome(String s) {
 
-		boolean value=true;
-		for (int i = 0; i < s.length(); i++) {
-			if(Character.isDigit(s.charAt(i))) {
-				value=true;
-				break;
-			}else {
-				value = false;
-			}
-		}
-		return value;
+//		boolean value=true;
+//		for (int i = 0; i < s.length(); i++) {
+//			if(Character.isDigit(s.charAt(i))) {
+//				value=true;
+//				break;
+//			}else {
+//				value = false;
+//			}
+//		}
+//		return value;
+		return s.matches("[A-Z][a-z]{1,}");
+		
 	}
-	
+
 	protected static String readDataString (String message) {
 		System.out.println(message);
 		return scan.next();
@@ -88,7 +90,7 @@ public abstract class TreatmentInput {
 		int processors = Runtime.getRuntime().availableProcessors();
 		return "Sistema Operacional: "+ os + ", Nº Processadores: "+processors;
 	}
-	
+
 	protected static void clearScreen() throws IOException {  
 		String os = System.getProperty("os.name");
 		if(os.contains("Linux")) {
@@ -98,6 +100,7 @@ public abstract class TreatmentInput {
 			Runtime.getRuntime().exec("cls");
 		}
 
-	}  
+	}
+	
 }
 
