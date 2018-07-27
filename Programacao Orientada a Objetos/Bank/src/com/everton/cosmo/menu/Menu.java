@@ -41,8 +41,6 @@ public class Menu extends TreatmentInput{
 				System.exit(0);
 			}
 
-
-
 			switch(op) {
 			case 1:
 				int number = readDataInteger("Digite o número da conta: ");
@@ -53,22 +51,37 @@ public class Menu extends TreatmentInput{
 
 					String name = readDataString("Digite o nome do titular da conta,primeira letra maiúscula : ");
 
-					while(!validaNome(name)) {
+					while(!validName(name)) {
 
 						System.out.println("apenas letras no nome do titular");
 						name = readDataString("Digite o nome do titular da conta: ");
 					}
 
-					double balance = parseDouble(readDataString("Digite o saldo da conta: "));
+					String e = readDataString("Digite o saldo da conta: ");
+
+					while(!validDouble(e)) {
+						System.out.println("somente números ");
+						e = readDataString("Digite o saldo da conta: ");
+					}
+
+					double balance = parseDouble(e);
 
 					String special = readDataString("Conta especial ? (S or N): ");
 
 					if(special.length() == 1) {
 						special = special.toLowerCase();
 						if(special.equalsIgnoreCase("s") || special.equalsIgnoreCase("n")) {
-							Bank.createAccount(new Account(number, name, balance, true, special, parseDouble(readDataString("Digite o limite da conta: "))));
+							//Bank.createAccount(Account(number, name, balance, true, special, parseDouble(readDataString("Digite o limite da conta: "))));
+							
+							String f = readDataString("Digite o limite da conta: ");
+							
+							while(!validDouble(f)) {
+								System.out.println("somente números");
+								f = readDataString("Digite o limite da conta: ");
+							}
+							
+							Bank.createAccount(new Account(number, name, balance, true, special, parseDouble(f)) {});
 							break;
-
 						}else {
 							System.err.println("Valor inválido. digite (S) ou (N)");
 						}
@@ -99,13 +112,19 @@ public class Menu extends TreatmentInput{
 					menuInitial();
 				}
 
-				Bank.draw(c, parseDouble(readDataString("Valor: ")));
+				try {
+					Bank.draw(c, parseDouble(readDataString("Valor: ")));
+				}catch(Exception e) {
+					System.err.println("saldo insuficiente");
+				}
+				System.out.println("saque concluído");
 				break;
 
 			case 3:
 
 				Bank.checkAccount();
-				// Search account for action(Draw or deposit) 
+
+
 				Account account = Bank.searchAccount(readDataInteger("Digite o número da conta para depositar ")); 
 
 				if(account == null) {
@@ -117,11 +136,12 @@ public class Menu extends TreatmentInput{
 				}
 
 				Bank. deposit(account, parseDouble(readDataString("Valor: ")));
+				System.out.println("Deposito concluído");
 				break;
 			case 4:
 				Bank.checkAccount();
 
-				// int numberAccount
+
 				Account c1 = Bank.searchAccount(readDataInteger("Digite o número da conta de origem"));
 
 				if(c1 == null) {
@@ -133,7 +153,7 @@ public class Menu extends TreatmentInput{
 						System.err.println("Conta removida/desativa, impossível movimentar");
 						menuInitial();
 					}
-			//	int numberAccount2 
+
 				Account c2 = Bank.searchAccount(readDataInteger("Digite o número da conta de destino"));
 
 				if(c2 == null) {
@@ -147,11 +167,11 @@ public class Menu extends TreatmentInput{
 					}
 
 				if(c1 == c2) {
-					System.err.println("Operação impossível com a mesma conta !"); // 
+					System.err.println("Operação impossível com a mesma conta !"); 
 					menuInitial();
 				}
 
-				//double valueTransfer = ;
+
 
 				Bank.transferValue(c1, c2, parseDouble(readDataString("Valor : ")));
 
@@ -177,7 +197,9 @@ public class Menu extends TreatmentInput{
 				Bank.checkAccount();
 
 				Bank.removeAccount(readDataInteger("Digite o número da conta para remover "));
+
 				break;
+
 			case 8:
 
 				Bank.showAccounts();break;
