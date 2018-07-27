@@ -9,17 +9,16 @@ import com.cosmo.everton.entitys.Account;
 import com.cosmo.everton.entitys.Movement;
 import com.everton.cosmo.menu.Menu;
 
-public abstract class Bank  {
+
+public abstract class Bank {
 
 	private static  ArrayList <Account> Accounts = new ArrayList<>();	
 
 
 
-	public static ArrayList<Account> getAccounts() {
-		return Accounts;
-	}
+	
 
-	public  static void createAccount(Account c) {
+	public static void createAccount(Account c) {
 
 		try {
 
@@ -27,7 +26,7 @@ public abstract class Bank  {
 		}catch(Exception e) {
 			System.out.println("Bank.createAccount()");
 		}finally {
-			System.out.println("sucess!");
+			System.out.println("Conta criada com sucesso!");
 		}
 	}
 
@@ -50,13 +49,9 @@ public abstract class Bank  {
 		}
 
 		account.setStatus(false);
-		System.out.println("sucess in remove account !");
+		System.out.println("Conta removida com sucesso");
 
 	}
-
-	// Accounts.remove(account);
-
-
 
 	public static Account searchAccount(Integer number) {
 
@@ -82,44 +77,37 @@ public abstract class Bank  {
 		}
 
 		System.out.println("Ativas: ");
-		for (Account account : Accounts) {
-			if(account.isStatus()) // ativa
-				System.out.println(account.toString());
 
-		}
+		Accounts.forEach(a->{
+			if(a.isStatus()) 
+				System.out.println(a);
+		});
+
 		System.out.println("Inativas: ");
-		for (Account account : Accounts) {
-			if(!account.isStatus()) // inativa
-				System.out.println(account.toString());
-		}
+
+		Accounts.forEach(a->{
+			if(!a.isStatus())
+				System.out.println(a);
+		});
 
 	}
+
 
 	/*
 	 * 	ACCOUNTS OPERATIONS 
 	 * 
 	 * */
+	public static void draw(Account c, double value) throws IllegalArgumentException{
 
 
-	public static void draw(Account c, double value){
+		if (c.getBalance()+c.getLimit() >= value) {
+			c.setBalance(c.getBalance()-value);
+			c.addMovement(new Movement("saque realizado", value,"débito" ));
 
-		if(c.getBalance() == 0) { 
-			System.out.println("saldo igual a 0, saque indisponível");
-			return;
+		}else {
+			throw new IllegalArgumentException();
 		}
 
-
-		try {
-			if (c.getBalance() >= value) {
-				c.setBalance(c.getBalance()-value);
-				System.out.println("sucess in draw ");
-				c.addMovement(new Movement("saque realizado", value,"débito" ));
-
-			}else
-				throw new IllegalArgumentException();
-		}catch(Exception e) {
-			System.err.println("Saldo insuficiente");
-		}
 
 	}
 
@@ -130,16 +118,10 @@ public abstract class Bank  {
 			System.out.println("Impossível depositar valor negativo ");
 			return;
 		}
-		try {
-			if(value < c.getBalance() ) {
-				c.setBalance(c.getBalance()+value);
-				System.out.println("sucess in deposit ");
-				c.addMovement(new Movement("deposito realizado", value,"crédito"));
-			}else
-				throw new IllegalArgumentException();
-		}catch(Exception e) {
-			System.out.println("Saldo insuficiente");
-		}
+
+		c.setBalance(c.getBalance()+value);
+		c.addMovement(new Movement("deposito realizado", value,"crédito"));
+
 	}
 
 
@@ -174,19 +156,15 @@ public abstract class Bank  {
 			return;
 		}
 		System.out.println("=== EMISSÃO DE EXTRATO ===  ");
+
 		if(c.getDrives().isEmpty()) {
 			System.out.println("Não existem movimentações nessa conta");
 			return;
 		}
-		//		System.out.println(c.getDrives()); using collections 
 
-		//		Object[] a =  c.getDrives().toArray();
-		//
-		//		for (int i = 0; i < a.length; i++) {
-		//			System.out.println(a[i]);
-		//		}
 
-		c.getDrives().forEach (System.out::println); 
+		c.getDrives().forEach (System.out::println); // show toString for all movement
+
 	}
 	public static void transferValue(Account c1,Account c2, double value) {
 		//			 1 -> 2 ; draw 1 -> deposit 2 
@@ -195,18 +173,36 @@ public abstract class Bank  {
 			System.out.println("Impossível transferir valor 0 ou negativo ");
 			return;
 		}
-
-		draw(c1, value);
-
+		
+		try {
+			draw(c1, value);
+			c1.getDrives().remove(c1.getDrives().size()-1);
+			c1.getDrives().add(new Movement("Transferência", value, "débito"));
+			
+		}catch(Exception e) {
+			System.err.println("saldo insuficiente na conta de origem");
+			return;
+		}
+		
 		deposit(c2, value);
+		
+		c2.getDrives().remove(c2.getDrives().size()-1); // remove last movement(draw or deposit)
+		c2.getDrives().add(new Movement("Transferência", value, "crédito")); // add new movement of transfer
 
-		System.out.println("Sucess in transfer");
+		try {
+			Thread.sleep(1200); // wait 1.2 seconds 
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();	
+		}
+
+		System.out.println("Transferência concluída");
 
 	}
 
 	// checks if there are already accounts in the bank
 	public static void checkAccount() {
-		if(Bank.getAccounts().isEmpty()) {
+		if(Accounts.isEmpty()) {
 			System.err.println("Não existem contas cadastradas ainda");
 			try {
 				Menu.menuInitial();
@@ -215,5 +211,5 @@ public abstract class Bank  {
 			}
 		}
 	}
-
+	
 }

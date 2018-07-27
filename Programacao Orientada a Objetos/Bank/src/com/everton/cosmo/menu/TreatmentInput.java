@@ -20,27 +20,30 @@ public abstract class TreatmentInput {
 		}catch(InputMismatchException e) {
 			System.err.println("valor inválido. Digite outro");
 		}
-		scan.nextLine();
+		scan.nextLine(); // "clear" buff 
 		while(value == -1)
 			value = readDataInteger(message);
 		return value;
 	}
 
 
-	protected static boolean validaNome(String s) {
+	protected static boolean validName(String s) {
 
-//		boolean value=true;
-//		for (int i = 0; i < s.length(); i++) {
-//			if(Character.isDigit(s.charAt(i))) {
-//				value=true;
-//				break;
-//			}else {
-//				value = false;
-//			}
-//		}
-//		return value;
-		return s.matches("[A-Z][a-z]{1,}");
+		return s.matches("[A-Z][a-z]{3,}");
 		
+	}
+	protected static boolean validDouble(String s) {
+		
+		boolean value=true;
+		for (int i = 0; i < s.length(); i++) {
+			if(Character.isDigit(s.charAt(i))) {
+				value=true;
+			}else {
+				value = false;
+			}
+		}
+
+		return value;
 	}
 
 	protected static String readDataString (String message) {
@@ -49,13 +52,19 @@ public abstract class TreatmentInput {
 	}
 
 	protected static double parseDouble(String a) throws ParseException, IOException {
+		
+//		if(!validDouble(a)) {
+//			System.out.println("somente números");
+//			parseDouble(a);
+//		}
 		Double d = null;
 
 		if(a.contains(",")) {
+			
+			
 			try {
 				DecimalFormat f = (DecimalFormat) DecimalFormat.getInstance(new Locale("pt","BR"));
 				d = (Double)f.parse(a).doubleValue();
-				System.err.println(d);
 				return d;
 			}catch(Exception e) {
 				System.err.println("valor inválido. Digite outro, saldo só pode conter números\n");
@@ -79,25 +88,22 @@ public abstract class TreatmentInput {
 
 	}
 
-
-	protected static boolean readDataBoolean(String message) {
-		System.out.println(message);
-		return scan.nextBoolean();
-
-	}
+	
+	
 	protected static String systemName() {
 		String os = System.getProperty("os.name");
 		int processors = Runtime.getRuntime().availableProcessors();
 		return "Sistema Operacional: "+ os + ", Nº Processadores: "+processors;
 	}
-
+	
+			/* Optional */ 
 	protected static void clearScreen() throws IOException {  
 		String os = System.getProperty("os.name");
 		if(os.contains("Linux")) {
 			System.out.println("\033[H\033[2J");  
 			System.out.flush();  
 		}else {
-			Runtime.getRuntime().exec("cls");
+			Runtime.getRuntime().exec("cls"); // not functional yet
 		}
 
 	}

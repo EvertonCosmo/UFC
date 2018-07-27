@@ -2,7 +2,7 @@ package com.cosmo.everton.entitys;
 
 import java.util.ArrayList;
 
-public class Account{
+public abstract class Account{
 
 	private Integer number;
 	private String name;
@@ -68,7 +68,7 @@ public class Account{
 		String status;
 		String specialS;
 		
-		if(special.contains("s") || special.contains("S")) {
+		if(special.equalsIgnoreCase("s")) {
 			specialS = "especial";
 		}
 		else { 

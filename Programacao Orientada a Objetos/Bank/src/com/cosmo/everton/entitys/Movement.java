@@ -25,7 +25,7 @@ public class Movement {
 		return type;
 
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Movement [description=" + description + ", values=" + values + ", type=" + type + "]\n";
