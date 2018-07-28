@@ -3,7 +3,7 @@ package com.cosmo.everton.repository;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
-
+import java.util.Comparator;
 
 import com.cosmo.everton.entitys.Account;
 import com.cosmo.everton.entitys.Movement;
@@ -13,10 +13,6 @@ import com.everton.cosmo.menu.Menu;
 public abstract class Bank {
 
 	private static  ArrayList <Account> Accounts = new ArrayList<>();	
-
-
-
-	
 
 	public static void createAccount(Account c) {
 
@@ -42,6 +38,7 @@ public abstract class Bank {
 		Account account = searchAccount(number);
 		if(account == null) {
 			System.err.println("Conta não encontrada!");
+			return;
 		}
 		if(!account.isStatus()) {
 			System.err.println("A conta já foi removida/desativada");
@@ -49,6 +46,7 @@ public abstract class Bank {
 		}
 
 		account.setStatus(false);
+
 		System.out.println("Conta removida com sucesso");
 
 	}
@@ -64,11 +62,14 @@ public abstract class Bank {
 				return account;
 			}
 		}
-
+		
 		return null;
 	}
 
 	public static void showAccounts() {
+
+		Accounts.sort(Comparator.comparing(a->a.getNumber())); // Sort array by number
+
 		System.out.println("=== CONTAS ATIVAS E INATIVAS === ");
 
 		if(Accounts.isEmpty()) {
@@ -142,12 +143,14 @@ public abstract class Bank {
 			status = "desativada";
 
 		System.out.println("=== EMISSÃO DE SALDO ===  ");
+
 		System.out.println("Conta: "+c.getNumber());
 		System.out.println("Titular: "+c.getName());
 		System.out.println("Saldo: "+c.getBalance());
 		System.out.println("Estado: "+status);
 
 	}
+	
 	public static void ExtractIssue(Integer number) {
 		Account c = searchAccount(number);
 
@@ -155,13 +158,13 @@ public abstract class Bank {
 			System.out.println("Erro! conta não encontrada");
 			return;
 		}
+
 		System.out.println("=== EMISSÃO DE EXTRATO ===  ");
 
 		if(c.getDrives().isEmpty()) {
 			System.out.println("Não existem movimentações nessa conta");
 			return;
 		}
-
 
 		c.getDrives().forEach (System.out::println); // show toString for all movement
 
@@ -173,19 +176,19 @@ public abstract class Bank {
 			System.out.println("Impossível transferir valor 0 ou negativo ");
 			return;
 		}
-		
+
 		try {
 			draw(c1, value);
 			c1.getDrives().remove(c1.getDrives().size()-1);
 			c1.getDrives().add(new Movement("Transferência", value, "débito"));
-			
+
 		}catch(Exception e) {
 			System.err.println("saldo insuficiente na conta de origem");
 			return;
 		}
-		
+
 		deposit(c2, value);
-		
+
 		c2.getDrives().remove(c2.getDrives().size()-1); // remove last movement(draw or deposit)
 		c2.getDrives().add(new Movement("Transferência", value, "crédito")); // add new movement of transfer
 
@@ -211,5 +214,5 @@ public abstract class Bank {
 			}
 		}
 	}
-	
+
 }

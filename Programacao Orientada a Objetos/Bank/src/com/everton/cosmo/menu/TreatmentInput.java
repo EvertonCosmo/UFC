@@ -1,6 +1,7 @@
 package com.everton.cosmo.menu;
 
 import java.io.IOException;
+import java.security.SecureRandom;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -30,14 +31,15 @@ public abstract class TreatmentInput {
 	protected static boolean validName(String s) {
 
 		return s.matches("[A-Z][a-z]{3,}");
-		
+
 	}
+	
 	protected static boolean validDouble(String s) {
-		
+
 		boolean value=true;
 		for (int i = 0; i < s.length(); i++) {
 			if(Character.isDigit(s.charAt(i))) {
-				value=true;
+				value = true;
 			}else {
 				value = false;
 			}
@@ -53,15 +55,11 @@ public abstract class TreatmentInput {
 
 	protected static double parseDouble(String a) throws ParseException, IOException {
 		
-//		if(!validDouble(a)) {
-//			System.out.println("somente números");
-//			parseDouble(a);
-//		}
 		Double d = null;
 
 		if(a.contains(",")) {
-			
-			
+
+
 			try {
 				DecimalFormat f = (DecimalFormat) DecimalFormat.getInstance(new Locale("pt","BR"));
 				d = (Double)f.parse(a).doubleValue();
@@ -88,15 +86,20 @@ public abstract class TreatmentInput {
 
 	}
 
-	
+	/* number account  random */
+	protected static Integer randomNumber() { 
+		SecureRandom random = new SecureRandom();
+		return random.nextInt(200);
+	}
 	
 	protected static String systemName() {
 		String os = System.getProperty("os.name");
+		
 		int processors = Runtime.getRuntime().availableProcessors();
 		return "Sistema Operacional: "+ os + ", Nº Processadores: "+processors;
 	}
-	
-			/* Optional */ 
+
+	/* Optional */ 
 	protected static void clearScreen() throws IOException {  
 		String os = System.getProperty("os.name");
 		if(os.contains("Linux")) {
@@ -104,9 +107,10 @@ public abstract class TreatmentInput {
 			System.out.flush();  
 		}else {
 			Runtime.getRuntime().exec("cls"); // not functional yet
+			System.out.flush();
 		}
 
 	}
-	
+
 }
 
