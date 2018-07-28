@@ -31,7 +31,7 @@ public class Menu extends TreatmentInput{
 			System.out.println("|| (8) -> LISTAR CONTAS                  ||");
 			System.out.println("|| (9) -> EXIT                           ||");
 			System.out.println("||=======================================||");
-			System.out.print(">>");
+			System.out.print(">> ");
 
 			try {
 				op = scan.nextInt();
@@ -43,24 +43,26 @@ public class Menu extends TreatmentInput{
 
 			switch(op) {
 			case 1:
-				int number = readDataInteger("Digite o número da conta: ");
+				int number = randomNumber();
 
-				Account d = Bank.searchAccount(number); // Search Account 
+				Account d = Bank.searchAccount(number); // Search Account
+
+
 
 				if(d == null) {
-
+					System.out.printf("Número da sua conta: %d %n",number);  
 					String name = readDataString("Digite o nome do titular da conta,primeira letra maiúscula : ");
 
 					while(!validName(name)) {
 
-						System.out.println("apenas letras no nome do titular");
+						System.err.println("apenas letras no nome do titular");
 						name = readDataString("Digite o nome do titular da conta: ");
 					}
 
 					String e = readDataString("Digite o saldo da conta: ");
 
 					while(!validDouble(e)) {
-						System.out.println("somente números ");
+						System.err.println("somente números ");
 						e = readDataString("Digite o saldo da conta: ");
 					}
 
@@ -69,18 +71,19 @@ public class Menu extends TreatmentInput{
 					String special = readDataString("Conta especial ? (S or N): ");
 
 					if(special.length() == 1) {
-						special = special.toLowerCase();
+						
 						if(special.equalsIgnoreCase("s") || special.equalsIgnoreCase("n")) {
-							//Bank.createAccount(Account(number, name, balance, true, special, parseDouble(readDataString("Digite o limite da conta: "))));
-							
+
 							String f = readDataString("Digite o limite da conta: ");
-							
+
 							while(!validDouble(f)) {
-								System.out.println("somente números");
+								System.err.println("somente números");
 								f = readDataString("Digite o limite da conta: ");
 							}
-							
+
 							Bank.createAccount(new Account(number, name, balance, true, special, parseDouble(f)) {});
+
+
 							break;
 						}else {
 							System.err.println("Valor inválido. digite (S) ou (N)");
@@ -93,6 +96,7 @@ public class Menu extends TreatmentInput{
 				}else {
 					System.err.println("Já existe uma conta com esse número");
 				}
+
 				break;
 
 
@@ -116,6 +120,7 @@ public class Menu extends TreatmentInput{
 					Bank.draw(c, parseDouble(readDataString("Valor: ")));
 				}catch(Exception e) {
 					System.err.println("saldo insuficiente");
+					menuInitial();
 				}
 				System.out.println("saque concluído");
 				break;
@@ -189,7 +194,9 @@ public class Menu extends TreatmentInput{
 			case 6:
 
 				Bank.checkAccount();
+				
 				Bank.ExtractIssue(readDataInteger("Digite o número da conta para emitir extrato "));
+				
 				break;
 
 			case 7:
@@ -209,8 +216,8 @@ public class Menu extends TreatmentInput{
 			default:
 
 				System.err.println("Erro!, valor indisponível\n");Menu.menuInitial();
-
 			}
+			
 		}while(op !=0);
 
 		scan.close();

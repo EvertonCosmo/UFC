@@ -83,8 +83,8 @@ public abstract class Account{
 			status = "desativada";
 		}
 		
-		return "Account [number=" + number + ", name=" + name + ", balance=" + balance + ", status=" + status
-				+ ", special=" + specialS + ", limit=" + limit + "]";
+		return "Account [number = " + number + ", name = " + name + ", balance =" + balance + ", status =" + status
+				+ ", special = " + specialS + ", limit = " + limit + "]";
 	}
 
 
