@@ -54,7 +54,9 @@ public class Perfume {
 		builder.append(", tamanho=");
 		builder.append(tamanho);
 		builder.append(" ]");
+		
 		return builder.toString();
+		
 	}
 	
 	public Integer getCodigo() {

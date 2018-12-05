@@ -29,8 +29,13 @@ public class Cartao implements FormaPagamento{
 	}
 	
 	@Override
-	public void pagar(Pedido pedido,Double valor) {
-		
+	public boolean pagar(Pedido pedido,Double valor) {
+		if(valor.doubleValue() >= pedido.getValor().doubleValue()) {
+			Double c = valor.doubleValue() - pedido.getValor().doubleValue();
+			 System.out.printf("Seu troco é : %f ",c.doubleValue());
+			 return true;
+		}
+		return false;
 	}
 
 	

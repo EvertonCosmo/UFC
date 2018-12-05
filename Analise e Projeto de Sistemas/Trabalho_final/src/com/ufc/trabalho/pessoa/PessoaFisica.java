@@ -59,10 +59,13 @@ public class PessoaFisica extends Cliente{
 			this.telefone = telefone;
 			return this;
 		}
+		
 		public PessoaFisicaBuilder email(String email) {
 			this.email = email;
 			return this;
 		}
+		
+		
 		public PessoaFisica build(){
 			return new PessoaFisica(this);
 		}

@@ -2,9 +2,10 @@ package com.ufc.trabalho.pessoa;
 
 import java.util.ArrayList;
 
+
 import java.util.List;
 
-import com.ufc.trabalho.entidades.Crud;
+
 import com.ufc.trabalho.entidades.Pedido;
 
 public  class Cliente{

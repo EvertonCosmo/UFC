@@ -11,8 +11,8 @@ public class StrategyContext {
 		this.strategy = strategy;
 	}
 
-	public void efetuarPagamento( Pedido pedido,Double valor) {
-		strategy.pagar(pedido,valor);
+	public boolean efetuarPagamento( Pedido pedido,Double valor) {
+		return strategy.pagar(pedido,valor);
 	}
 
 }

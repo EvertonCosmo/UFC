@@ -1,37 +1,59 @@
 package com.ufc.trabalho.entidades;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import com.ufc.trabalho.pagamento.FormaPagamento;
 import com.ufc.trabalho.pagamento.StrategyContext;
 import com.ufc.trabalho.pessoa.PessoaFisica;
-import com.ufc.trabalho.repositorio.Item;
 
 
- public class Pedido implements Crud{
+public class Pedido{
 
 	private int codigo;
 	private PessoaFisica clienteAssociado;
-	private Calendar dataPedido;
-	private Calendar dataPagamento;
+	private String dataPedido;
+	private String dataPagamento;
 	private String enderecoEntrega;
 	private Double valor;
 	private StrategyContext formaPagamento;
+	private Calendar calendario = Calendar.getInstance();
 
 	private List<Item> itens= new ArrayList<>();
 
 
-	public Pedido(FormaPagamento pagamento, PessoaFisica cliente, Double valor) {
-		this.formaPagamento = new StrategyContext(pagamento);
-		formaPagamento.efetuarPagamento(this, valor);
-		this.clienteAssociado = cliente;
+	public List<Item> getItens() {
+		return itens;
 	}
-	
+
+		
+	public Pedido(FormaPagamento pagamento, PessoaFisica cliente, Double valor,Item e) {
+		this.formaPagamento = new StrategyContext(pagamento);
+		this.clienteAssociado = cliente;
+		this.valor = valor;
+		this.itens.add(e);
+		codigo ++;
+		setEnderecoEntrega(cliente.getEndereco());
+		calendario.add(Calendar.DAY_OF_MONTH,15);
+		Date data = calendario.getTime();
+		SimpleDateFormat formatar  = new SimpleDateFormat("dd/MM/yyyy");
+		String dataPagamento = formatar.format(data);
+		setDataPagamento(dataPagamento);
+		
+		calendario.add(Calendar.DAY_OF_MONTH,-15);
+		Date dataNovo = calendario.getTime();
+		String dataPedido = formatar.format(dataNovo);
+		setDataPedido(dataPedido);
+		
+
+	}
+
 	public StrategyContext getFormaPagamento() {
 		return formaPagamento;
 	}
@@ -52,16 +74,16 @@ import com.ufc.trabalho.repositorio.Item;
 	public void setClienteAssociado(PessoaFisica clienteAssociado) {
 		this.clienteAssociado = clienteAssociado;
 	}
-	public Calendar getDataPedido() {
+	public String getDataPedido() {
 		return dataPedido;
 	}
-	public void setDataPedido(Calendar dataPedido) {
+	public void setDataPedido(String  dataPedido) {
 		this.dataPedido = dataPedido;
 	}
-	public Calendar getDataPagamento() {
+	public String getDataPagamento() {
 		return dataPagamento;
 	}
-	public void setDataPagamento(Calendar dataPagamento) {
+	public void setDataPagamento(String dataPagamento) {
 		this.dataPagamento = dataPagamento;
 	}
 	public String getEnderecoEntrega() {
@@ -77,10 +99,6 @@ import com.ufc.trabalho.repositorio.Item;
 		this.valor = valor;
 	}
 
-
-
-
-	@Override
 	public void adicionar(Object obj) {
 		if(obj == null)
 			return;
@@ -91,42 +109,29 @@ import com.ufc.trabalho.repositorio.Item;
 	}
 
 	@Override
-	public void remover(Integer codigo) {
-		itens.forEach(a->{
-			if(a.getCodigo() ==codigo )
-				itens.remove(a);
-		});
-
-
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Pedido [codigo=");
+		builder.append(codigo);
+		builder.append(", clienteAssociado=");
+		builder.append(clienteAssociado);
+		builder.append(", dataPedido=");
+		builder.append(dataPedido);
+		builder.append(", dataPagamento=");
+		builder.append(dataPagamento);
+		builder.append(", enderecoEntrega=");
+		builder.append(enderecoEntrega);
+		builder.append(", valor=");
+		builder.append(valor);
+		builder.append(", formaPagamento=");
+		builder.append(formaPagamento);
+		builder.append(", itens=");
+		builder.append(itens);
+		builder.append("]");
+		return builder.toString();
 	}
 
-	@Override
-	public Object pesquisar(Object obj) {
-		if(obj == null)
-			return null;
-		if(obj instanceof Perfume) {
-			for (Item item : itens) {
-				if(item.equals(obj)) {
-					return item;
-				}
-			}
-		}
-		return null;
-	}
 
-	
-	public void mostrarDados() {
-		if(itens.isEmpty())
-			return;
-		itens.forEach(System.out::println);
-	}
-
-	
-	@Override
-	public void atualizar() {
-		// TODO Auto-generated method stub
-
-	}
 
 
 
