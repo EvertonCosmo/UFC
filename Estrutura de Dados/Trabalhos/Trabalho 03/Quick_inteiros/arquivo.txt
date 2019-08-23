@@ -1,0 +1,4 @@
+TAM: 5000 SEEK: 1 
+user time: 0.00211, System time 0.000, Total Time: 0.002
+Number of comp: 67888, Number of copys: 103543
+

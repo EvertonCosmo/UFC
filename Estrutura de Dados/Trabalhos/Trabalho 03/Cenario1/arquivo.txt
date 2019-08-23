@@ -1,0 +1,644 @@
+3TAM: 1000 SEEK: 1 
+Algorithm: QUICK user time: 0.00108, System time 0.000, Total Time: 0.001
+Number of comp: 10453, Number of copys: 6776
+
+TAM: 1000 SEEK: 1 
+Algorithm: BUBBLE user time: 0.01319, System time 0.000, Total Time: 0.013
+Number of comp: 971028, Number of copys: 255998
+
+TAM: 1000 SEEK: 1 
+Algorithm: MERGE user time: 0.00191, System time 0.000, Total Time: 0.002
+Number of comp: 9744, Number of copys: 20982
+
+TAM: 1000 SEEK: 1 
+Algorithm: HEAP user time: 0.00131, System time 0.000, Total Time: 0.001
+Number of comp: 28961, Number of copys: 11920
+
+TAM: 1000 SEEK: 1 
+Algorithm: INSERTION user time: 0.00254, System time 0.003, Total Time: 0.005
+Number of comp: 255998, Number of copys: 256998
+
+TAM: 1000 SEEK: 1 
+Algorithm: SELECTION user time: 0.00330, System time 0.003, Total Time: 0.007
+Number of comp: 499500, Number of copys: 6477
+
+TAM: 1000 SEEK: 2 
+Algorithm: QUICK user time: 0.00181, System time 0.000, Total Time: 0.002
+Number of comp: 11143, Number of copys: 7661
+
+TAM: 1000 SEEK: 2 
+Algorithm: BUBBLE user time: 0.00973, System time 0.003, Total Time: 0.013
+Number of comp: 949050, Number of copys: 255771
+
+TAM: 1000 SEEK: 2 
+Algorithm: MERGE user time: 0.00230, System time 0.000, Total Time: 0.002
+Number of comp: 9744, Number of copys: 20982
+
+TAM: 1000 SEEK: 2 
+Algorithm: HEAP user time: 0.00195, System time 0.000, Total Time: 0.002
+Number of comp: 28966, Number of copys: 11913
+
+TAM: 1000 SEEK: 2 
+Algorithm: INSERTION user time: 0.00374, System time 0.000, Total Time: 0.004
+Number of comp: 255771, Number of copys: 256771
+
+TAM: 1000 SEEK: 2 
+Algorithm: SELECTION user time: 0.00668, System time 0.000, Total Time: 0.007
+Number of comp: 499500, Number of copys: 6599
+
+TAM: 1000 SEEK: 3 
+Algorithm: QUICK user time: 0.00000, System time 0.002, Total Time: 0.002
+Number of comp: 10964, Number of copys: 6268
+
+TAM: 1000 SEEK: 3 
+Algorithm: BUBBLE user time: 0.01195, System time 0.003, Total Time: 0.015
+Number of comp: 986013, Number of copys: 249623
+
+TAM: 1000 SEEK: 3 
+Algorithm: MERGE user time: 0.00194, System time 0.000, Total Time: 0.002
+Number of comp: 9735, Number of copys: 20982
+
+TAM: 1000 SEEK: 3 
+Algorithm: HEAP user time: 0.00194, System time 0.000, Total Time: 0.002
+Number of comp: 29066, Number of copys: 11940
+
+TAM: 1000 SEEK: 3 
+Algorithm: INSERTION user time: 0.00231, System time 0.002, Total Time: 0.005
+Number of comp: 249623, Number of copys: 250623
+
+TAM: 1000 SEEK: 3 
+Algorithm: SELECTION user time: 0.00646, System time 0.000, Total Time: 0.006
+Number of comp: 499500, Number of copys: 6660
+
+TAM: 1000 SEEK: 4 
+Algorithm: QUICK user time: 0.00179, System time 0.000, Total Time: 0.002
+Number of comp: 11094, Number of copys: 7744
+
+TAM: 1000 SEEK: 4 
+Algorithm: BUBBLE user time: 0.00835, System time 0.003, Total Time: 0.011
+Number of comp: 958041, Number of copys: 244676
+
+TAM: 1000 SEEK: 4 
+Algorithm: MERGE user time: 0.00000, System time 0.002, Total Time: 0.002
+Number of comp: 9747, Number of copys: 20982
+
+TAM: 1000 SEEK: 4 
+Algorithm: HEAP user time: 0.00000, System time 0.001, Total Time: 0.001
+Number of comp: 29167, Number of copys: 11961
+
+TAM: 1000 SEEK: 4 
+Algorithm: INSERTION user time: 0.00490, System time 0.000, Total Time: 0.005
+Number of comp: 244676, Number of copys: 245676
+
+TAM: 1000 SEEK: 4 
+Algorithm: SELECTION user time: 0.00660, System time 0.000, Total Time: 0.007
+Number of comp: 499500, Number of copys: 6342
+
+TAM: 1000 SEEK: 5 
+Algorithm: QUICK user time: 0.00179, System time 0.000, Total Time: 0.002
+Number of comp: 10646, Number of copys: 6634
+
+TAM: 1000 SEEK: 5 
+Algorithm: BUBBLE user time: 0.01301, System time 0.000, Total Time: 0.013
+Number of comp: 952047, Number of copys: 244611
+
+TAM: 1000 SEEK: 5 
+Algorithm: MERGE user time: 0.00000, System time 0.002, Total Time: 0.002
+Number of comp: 9739, Number of copys: 20982
+
+TAM: 1000 SEEK: 5 
+Algorithm: HEAP user time: 0.00207, System time 0.000, Total Time: 0.002
+Number of comp: 29034, Number of copys: 11936
+
+TAM: 1000 SEEK: 5 
+Algorithm: INSERTION user time: 0.00203, System time 0.000, Total Time: 0.002
+Number of comp: 244611, Number of copys: 245611
+
+TAM: 1000 SEEK: 5 
+Algorithm: SELECTION user time: 0.00699, System time 0.000, Total Time: 0.007
+Number of comp: 499500, Number of copys: 6595
+
+TAM: 5000 SEEK: 1 
+Algorithm: QUICK user time: 0.00360, System time 0.000, Total Time: 0.004
+Number of comp: 67888, Number of copys: 38969
+
+TAM: 5000 SEEK: 1 
+Algorithm: BUBBLE user time: 0.17358, System time 0.000, Total Time: 0.174
+Number of comp: 24895020, Number of copys: 6305425
+
+TAM: 5000 SEEK: 1 
+Algorithm: MERGE user time: 0.00234, System time 0.002, Total Time: 0.005
+Number of comp: 61809, Number of copys: 131336
+
+TAM: 5000 SEEK: 1 
+Algorithm: HEAP user time: 0.00474, System time 0.000, Total Time: 0.005
+Number of comp: 185718, Number of copys: 71341
+
+TAM: 5000 SEEK: 1 
+Algorithm: INSERTION user time: 0.04839, System time 0.000, Total Time: 0.048
+Number of comp: 6305425, Number of copys: 6310425
+
+TAM: 5000 SEEK: 1 
+Algorithm: SELECTION user time: 0.05702, System time 0.000, Total Time: 0.057
+Number of comp: 12497500, Number of copys: 41134
+
+TAM: 5000 SEEK: 2 
+Algorithm: QUICK user time: 0.00186, System time 0.002, Total Time: 0.004
+Number of comp: 66595, Number of copys: 37387
+
+TAM: 5000 SEEK: 2 
+Algorithm: BUBBLE user time: 0.16431, System time 0.003, Total Time: 0.168
+Number of comp: 24605078, Number of copys: 6281692
+
+TAM: 5000 SEEK: 2 
+Algorithm: MERGE user time: 0.00458, System time 0.000, Total Time: 0.005
+Number of comp: 61881, Number of copys: 131336
+
+TAM: 5000 SEEK: 2 
+Algorithm: HEAP user time: 0.00471, System time 0.000, Total Time: 0.005
+Number of comp: 185753, Number of copys: 71312
+
+TAM: 5000 SEEK: 2 
+Algorithm: INSERTION user time: 0.04535, System time 0.000, Total Time: 0.045
+Number of comp: 6281692, Number of copys: 6286692
+
+TAM: 5000 SEEK: 2 
+Algorithm: SELECTION user time: 0.05907, System time 0.000, Total Time: 0.059
+Number of comp: 12497500, Number of copys: 40215
+
+TAM: 5000 SEEK: 3 
+Algorithm: QUICK user time: 0.00372, System time 0.000, Total Time: 0.004
+Number of comp: 68323, Number of copys: 36882
+
+TAM: 5000 SEEK: 3 
+Algorithm: BUBBLE user time: 0.16479, System time 0.003, Total Time: 0.168
+Number of comp: 24460107, Number of copys: 6212163
+
+TAM: 5000 SEEK: 3 
+Algorithm: MERGE user time: 0.00477, System time 0.000, Total Time: 0.005
+Number of comp: 61866, Number of copys: 131336
+
+TAM: 5000 SEEK: 3 
+Algorithm: HEAP user time: 0.00229, System time 0.002, Total Time: 0.005
+Number of comp: 185585, Number of copys: 71283
+
+TAM: 5000 SEEK: 3 
+Algorithm: INSERTION user time: 0.04326, System time 0.000, Total Time: 0.043
+Number of comp: 6212163, Number of copys: 6217163
+
+TAM: 5000 SEEK: 3 
+Algorithm: SELECTION user time: 0.06226, System time 0.000, Total Time: 0.062
+Number of comp: 12497500, Number of copys: 40492
+
+TAM: 5000 SEEK: 4 
+Algorithm: QUICK user time: 0.00000, System time 0.004, Total Time: 0.004
+Number of comp: 71999, Number of copys: 40455
+
+TAM: 5000 SEEK: 4 
+Algorithm: BUBBLE user time: 0.15964, System time 0.000, Total Time: 0.160
+Number of comp: 24415116, Number of copys: 6166145
+
+TAM: 5000 SEEK: 4 
+Algorithm: MERGE user time: 0.00472, System time 0.000, Total Time: 0.005
+Number of comp: 61860, Number of copys: 131336
+
+TAM: 5000 SEEK: 4 
+Algorithm: HEAP user time: 0.00315, System time 0.000, Total Time: 0.003
+Number of comp: 185938, Number of copys: 71379
+
+TAM: 5000 SEEK: 4 
+Algorithm: INSERTION user time: 0.04374, System time 0.000, Total Time: 0.044
+Number of comp: 6166145, Number of copys: 6171145
+
+TAM: 5000 SEEK: 4 
+Algorithm: SELECTION user time: 0.05624, System time 0.003, Total Time: 0.060
+Number of comp: 12497500, Number of copys: 40467
+
+TAM: 5000 SEEK: 5 
+Algorithm: QUICK user time: 0.00153, System time 0.000, Total Time: 0.002
+Number of comp: 66820, Number of copys: 40697
+
+TAM: 5000 SEEK: 5 
+Algorithm: BUBBLE user time: 0.16546, System time 0.000, Total Time: 0.165
+Number of comp: 24415116, Number of copys: 6220947
+
+TAM: 5000 SEEK: 5 
+Algorithm: MERGE user time: 0.00467, System time 0.000, Total Time: 0.005
+Number of comp: 61853, Number of copys: 131336
+
+TAM: 5000 SEEK: 5 
+Algorithm: HEAP user time: 0.00239, System time 0.002, Total Time: 0.005
+Number of comp: 185857, Number of copys: 71363
+
+TAM: 5000 SEEK: 5 
+Algorithm: INSERTION user time: 0.04030, System time 0.003, Total Time: 0.043
+Number of comp: 6220947, Number of copys: 6225947
+
+TAM: 5000 SEEK: 5 
+Algorithm: SELECTION user time: 0.06421, System time 0.000, Total Time: 0.064
+Number of comp: 12497500, Number of copys: 40463
+
+TAM: 10000 SEEK: 1 
+Algorithm: QUICK user time: 0.00227, System time 0.002, Total Time: 0.005
+Number of comp: 152538, Number of copys: 93577
+
+TAM: 10000 SEEK: 1 
+Algorithm: BUBBLE user time: 0.70300, System time 0.003, Total Time: 0.706
+Number of comp: 98810118, Number of copys: 25224415
+
+TAM: 10000 SEEK: 1 
+Algorithm: MERGE user time: 0.00514, System time 0.003, Total Time: 0.008
+Number of comp: 133692, Number of copys: 282657
+
+TAM: 10000 SEEK: 1 
+Algorithm: HEAP user time: 0.00744, System time 0.000, Total Time: 0.007
+Number of comp: 406370, Number of copys: 152676
+
+TAM: 10000 SEEK: 1 
+Algorithm: INSERTION user time: 0.17370, System time 0.000, Total Time: 0.174
+Number of comp: 25224415, Number of copys: 25234415
+
+TAM: 10000 SEEK: 1 
+Algorithm: SELECTION user time: 0.20833, System time 0.000, Total Time: 0.208
+Number of comp: 49995000, Number of copys: 88796
+
+TAM: 10000 SEEK: 2 
+Algorithm: QUICK user time: 0.00324, System time 0.003, Total Time: 0.007
+Number of comp: 161173, Number of copys: 92592
+
+TAM: 10000 SEEK: 2 
+Algorithm: BUBBLE user time: 0.70519, System time 0.003, Total Time: 0.709
+Number of comp: 98970102, Number of copys: 25538524
+
+TAM: 10000 SEEK: 2 
+Algorithm: MERGE user time: 0.00831, System time 0.000, Total Time: 0.008
+Number of comp: 133747, Number of copys: 282657
+
+TAM: 10000 SEEK: 2 
+Algorithm: HEAP user time: 0.00569, System time 0.000, Total Time: 0.006
+Number of comp: 406426, Number of copys: 152659
+
+TAM: 10000 SEEK: 2 
+Algorithm: INSERTION user time: 0.15675, System time 0.000, Total Time: 0.157
+Number of comp: 25538524, Number of copys: 25548524
+
+TAM: 10000 SEEK: 2 
+Algorithm: SELECTION user time: 0.20771, System time 0.000, Total Time: 0.208
+Number of comp: 49995000, Number of copys: 87222
+
+TAM: 10000 SEEK: 3 
+Algorithm: QUICK user time: 0.00535, System time 0.000, Total Time: 0.005
+Number of comp: 163477, Number of copys: 87037
+
+TAM: 10000 SEEK: 3 
+Algorithm: BUBBLE user time: 0.70128, System time 0.003, Total Time: 0.705
+Number of comp: 98520147, Number of copys: 24988661
+
+TAM: 10000 SEEK: 3 
+Algorithm: MERGE user time: 0.00565, System time 0.000, Total Time: 0.006
+Number of comp: 133707, Number of copys: 282657
+
+TAM: 10000 SEEK: 3 
+Algorithm: HEAP user time: 0.00848, System time 0.000, Total Time: 0.008
+Number of comp: 406730, Number of copys: 152692
+
+TAM: 10000 SEEK: 3 
+Algorithm: INSERTION user time: 0.15431, System time 0.000, Total Time: 0.154
+Number of comp: 24988661, Number of copys: 24998661
+
+TAM: 10000 SEEK: 3 
+Algorithm: SELECTION user time: 0.21060, System time 0.000, Total Time: 0.211
+Number of comp: 49995000, Number of copys: 87871
+
+TAM: 10000 SEEK: 4 
+Algorithm: QUICK user time: 0.00660, System time 0.000, Total Time: 0.007
+Number of comp: 161960, Number of copys: 101921
+
+TAM: 10000 SEEK: 4 
+Algorithm: BUBBLE user time: 0.69238, System time 0.000, Total Time: 0.692
+Number of comp: 98180181, Number of copys: 25048683
+
+TAM: 10000 SEEK: 4 
+Algorithm: MERGE user time: 0.00599, System time 0.000, Total Time: 0.006
+Number of comp: 133667, Number of copys: 282657
+
+TAM: 10000 SEEK: 4 
+Algorithm: HEAP user time: 0.00282, System time 0.003, Total Time: 0.006
+Number of comp: 406556, Number of copys: 152695
+
+TAM: 10000 SEEK: 4 
+Algorithm: INSERTION user time: 0.16254, System time 0.003, Total Time: 0.166
+Number of comp: 25048683, Number of copys: 25058683
+
+TAM: 10000 SEEK: 4 
+Algorithm: SELECTION user time: 0.20754, System time 0.003, Total Time: 0.211
+Number of comp: 49995000, Number of copys: 88493
+
+TAM: 10000 SEEK: 5 
+Algorithm: QUICK user time: 0.00430, System time 0.000, Total Time: 0.004
+Number of comp: 153530, Number of copys: 91524
+
+TAM: 10000 SEEK: 5 
+Algorithm: BUBBLE user time: 0.70600, System time 0.003, Total Time: 0.709
+Number of comp: 99710028, Number of copys: 24924994
+
+TAM: 10000 SEEK: 5 
+Algorithm: MERGE user time: 0.00561, System time 0.000, Total Time: 0.006
+Number of comp: 133691, Number of copys: 282657
+
+TAM: 10000 SEEK: 5 
+Algorithm: HEAP user time: 0.00769, System time 0.000, Total Time: 0.008
+Number of comp: 406668, Number of copys: 152754
+
+TAM: 10000 SEEK: 5 
+Algorithm: INSERTION user time: 0.15040, System time 0.000, Total Time: 0.150
+Number of comp: 24924994, Number of copys: 24934994
+
+TAM: 10000 SEEK: 5 
+Algorithm: SELECTION user time: 0.20402, System time 0.000, Total Time: 0.204
+Number of comp: 49995000, Number of copys: 87891
+
+TAM: 50000 SEEK: 1 
+Algorithm: QUICK user time: 0.01331, System time 0.003, Total Time: 0.017
+Number of comp: 933288, Number of copys: 547491
+
+TAM: 50000 SEEK: 1 
+Algorithm: BUBBLE user time: 18.93892, System time 0.017, Total Time: 18.955
+Number of comp: 2489800203, Number of copys: 623881099
+
+TAM: 50000 SEEK: 1 
+Algorithm: MERGE user time: 0.02021, System time 0.003, Total Time: 0.024
+Number of comp: 783389, Number of copys: 1643012
+
+TAM: 50000 SEEK: 1 
+Algorithm: HEAP user time: 0.02533, System time 0.000, Total Time: 0.025
+Number of comp: 2440747, Number of copys: 879966
+
+TAM: 50000 SEEK: 1 
+Algorithm: INSERTION user time: 3.65498, System time 0.000, Total Time: 3.655
+Number of comp: 623881099, Number of copys: 623931099
+
+TAM: 50000 SEEK: 1 
+Algorithm: SELECTION user time: 5.05835, System time 0.007, Total Time: 5.065
+Number of comp: 1249975000, Number of copys: 517870
+
+TAM: 50000 SEEK: 2 
+Algorithm: QUICK user time: 0.01477, System time 0.003, Total Time: 0.018
+Number of comp: 984377, Number of copys: 583102
+
+TAM: 50000 SEEK: 2 
+Algorithm: BUBBLE user time: 18.92717, System time 0.007, Total Time: 18.934
+Number of comp: 2484450310, Number of copys: 625666126
+
+TAM: 50000 SEEK: 2 
+Algorithm: MERGE user time: 0.02415, System time 0.000, Total Time: 0.024
+Number of comp: 783279, Number of copys: 1643012
+
+TAM: 50000 SEEK: 2 
+Algorithm: HEAP user time: 0.02432, System time 0.000, Total Time: 0.024
+Number of comp: 2439368, Number of copys: 879719
+
+TAM: 50000 SEEK: 2 
+Algorithm: INSERTION user time: 3.63109, System time 0.000, Total Time: 3.631
+Number of comp: 625666126, Number of copys: 625716126
+
+TAM: 50000 SEEK: 2 
+Algorithm: SELECTION user time: 4.99829, System time 0.010, Total Time: 5.008
+Number of comp: 1249975000, Number of copys: 517884
+
+TAM: 50000 SEEK: 3 
+Algorithm: QUICK user time: 0.01940, System time 0.000, Total Time: 0.019
+Number of comp: 940899, Number of copys: 517651
+
+TAM: 50000 SEEK: 3 
+Algorithm: BUBBLE user time: 18.92753, System time 0.003, Total Time: 18.931
+Number of comp: 2483950320, Number of copys: 626463461
+
+TAM: 50000 SEEK: 3 
+Algorithm: MERGE user time: 0.02616, System time 0.000, Total Time: 0.026
+Number of comp: 783202, Number of copys: 1643012
+
+TAM: 50000 SEEK: 3 
+Algorithm: HEAP user time: 0.02116, System time 0.003, Total Time: 0.024
+Number of comp: 2440270, Number of copys: 879952
+
+TAM: 50000 SEEK: 3 
+Algorithm: INSERTION user time: 3.63211, System time 0.000, Total Time: 3.632
+Number of comp: 626463461, Number of copys: 626513461
+
+TAM: 50000 SEEK: 4 
+Algorithm: QUICK user time: 0.01946, System time 0.000, Total Time: 0.019
+Number of comp: 941530, Number of copys: 535105
+
+TAM: 50000 SEEK: 4 
+Algorithm: BUBBLE user time: 18.90904, System time 0.003, Total Time: 18.912
+Number of comp: 2482800343, Number of copys: 624656258
+
+TAM: 50000 SEEK: 4 
+Algorithm: MERGE user time: 0.02438, System time 0.000, Total Time: 0.024
+Number of comp: 783186, Number of copys: 1643012
+
+TAM: 50000 SEEK: 4 
+Algorithm: HEAP user time: 0.02051, System time 0.003, Total Time: 0.024
+Number of comp: 2440713, Number of copys: 880019
+
+TAM: 50000 SEEK: 4 
+Algorithm: INSERTION user time: 3.62104, System time 0.003, Total Time: 3.624
+Number of comp: 624656258, Number of copys: 624706258
+
+TAM: 50000 SEEK: 4 
+Algorithm: SELECTION user time: 5.00607, System time 0.000, Total Time: 5.006
+Number of comp: 1249975000, Number of copys: 516552
+
+TAM: 50000 SEEK: 5 
+Algorithm: QUICK user time: 0.01877, System time 0.000, Total Time: 0.019
+Number of comp: 949130, Number of copys: 566868
+
+TAM: 50000 SEEK: 5 
+Algorithm: BUBBLE user time: 18.93699, System time 0.007, Total Time: 18.944
+Number of comp: 2483100337, Number of copys: 622534081
+
+TAM: 50000 SEEK: 5 
+Algorithm: MERGE user time: 0.02360, System time 0.000, Total Time: 0.024
+Number of comp: 783354, Number of copys: 1643012
+
+TAM: 50000 SEEK: 5 
+Algorithm: HEAP user time: 0.01900, System time 0.003, Total Time: 0.022
+Number of comp: 2440244, Number of copys: 880010
+
+TAM: 50000 SEEK: 5 
+Algorithm: INSERTION user time: 3.60770, System time 0.000, Total Time: 3.608
+Number of comp: 622534081, Number of copys: 622584081
+
+TAM: 50000 SEEK: 5 
+Algorithm: SELECTION user time: 5.01146, System time 0.000, Total Time: 5.011
+Number of comp: 1249975000, Number of copys: 518966
+
+TAM: 100000 SEEK: 1 
+Algorithm: QUICK user time: 0.02639, System time 0.000, Total Time: 0.026
+Number of comp: 1999125, Number of copys: 1112695
+
+TAM: 100000 SEEK: 1 
+Algorithm: BUBBLE user time: 76.39971, System time 0.013, Total Time: 76.413
+Number of comp: 9955900440, Number of copys: 2491977701
+
+TAM: 100000 SEEK: 1 
+Algorithm: MERGE user time: 0.03909, System time 0.003, Total Time: 0.042
+Number of comp: 1666757, Number of copys: 3486005
+
+TAM: 100000 SEEK: 1 
+Algorithm: HEAP user time: 0.04451, System time 0.000, Total Time: 0.045
+Number of comp: 5231409, Number of copys: 1859812
+
+TAM: 100000 SEEK: 1 
+Algorithm: INSERTION user time: 14.39833, System time 0.003, Total Time: 14.402
+Number of comp: 2491977701, Number of copys: 2492077701
+
+TAM: 100000 SEEK: 1 
+Algorithm: SELECTION user time: 19.99633, System time 0.003, Total Time: 20.000
+Number of comp: 4999950000, Number of copys: 1107490
+
+TAM: 100000 SEEK: 2 
+Algorithm: QUICK user time: 0.02990, System time 0.000, Total Time: 0.030
+Number of comp: 1934836, Number of copys: 1077765
+
+TAM: 100000 SEEK: 2 
+Algorithm: BUBBLE user time: 76.54896, System time 0.010, Total Time: 76.559
+Number of comp: 9987700122, Number of copys: 2500231440
+
+TAM: 100000 SEEK: 2 
+Algorithm: MERGE user time: 0.03878, System time 0.003, Total Time: 0.042
+Number of comp: 1666538, Number of copys: 3486005
+
+TAM: 100000 SEEK: 2 
+Algorithm: HEAP user time: 0.04446, System time 0.000, Total Time: 0.044
+Number of comp: 5230343, Number of copys: 1859739
+
+TAM: 100000 SEEK: 2 
+Algorithm: INSERTION user time: 14.45727, System time 0.000, Total Time: 14.457
+Number of comp: 2500231440, Number of copys: 2500331440
+
+TAM: 100000 SEEK: 2 
+Algorithm: SELECTION user time: 20.06786, System time 0.007, Total Time: 20.074
+Number of comp: 4999950000, Number of copys: 1104502
+
+TAM: 100000 SEEK: 3 
+Algorithm: QUICK user time: 0.03414, System time 0.000, Total Time: 0.034
+Number of comp: 2128686, Number of copys: 1262799
+
+TAM: 100000 SEEK: 3 
+Algorithm: BUBBLE user time: 77.45087, System time 0.039, Total Time: 77.490
+Number of comp: 9954500454, Number of copys: 2498707164
+
+TAM: 100000 SEEK: 3 
+Algorithm: MERGE user time: 0.04304, System time 0.000, Total Time: 0.043
+Number of comp: 1666605, Number of copys: 3486005
+
+TAM: 100000 SEEK: 3 
+Algorithm: HEAP user time: 0.04582, System time 0.000, Total Time: 0.046
+Number of comp: 5231427, Number of copys: 1860150
+
+TAM: 100000 SEEK: 3 
+Algorithm: INSERTION user time: 14.50314, System time 0.000, Total Time: 14.503
+Number of comp: 2498707164, Number of copys: 2498807164
+
+TAM: 100000 SEEK: 3 
+Algorithm: SELECTION user time: 20.32796, System time 0.010, Total Time: 20.338
+Number of comp: 4999950000, Number of copys: 1107378
+
+TAM: 100000 SEEK: 4 
+Algorithm: QUICK user time: 0.03049, System time 0.003, Total Time: 0.034
+Number of comp: 2047605, Number of copys: 1151416
+
+TAM: 100000 SEEK: 4 
+Algorithm: BUBBLE user time: 76.51280, System time 0.046, Total Time: 76.559
+Number of comp: 9956400435, Number of copys: 2507104398
+
+TAM: 100000 SEEK: 4 
+Algorithm: MERGE user time: 0.04553, System time 0.000, Total Time: 0.046
+Number of comp: 1666393, Number of copys: 3486005
+
+TAM: 100000 SEEK: 4 
+Algorithm: HEAP user time: 0.04199, System time 0.003, Total Time: 0.045
+Number of comp: 5230048, Number of copys: 1859688
+
+TAM: 100000 SEEK: 4 
+Algorithm: INSERTION user time: 15.03443, System time 0.000, Total Time: 15.034
+Number of comp: 2507104398, Number of copys: 2507204398
+
+TAM: 100000 SEEK: 4 
+Algorithm: SELECTION user time: 20.09706, System time 0.007, Total Time: 20.104
+Number of comp: 4999950000, Number of copys: 1104605
+
+TAM: 100000 SEEK: 5 
+Algorithm: QUICK user time: 0.03300, System time 0.000, Total Time: 0.033
+Number of comp: 1999728, Number of copys: 1048939
+
+TAM: 100000 SEEK: 5 
+Algorithm: BUBBLE user time: 77.19684, System time 0.007, Total Time: 77.203
+Number of comp: 9991300086, Number of copys: 2492919515
+
+TAM: 100000 SEEK: 5 
+Algorithm: MERGE user time: 0.03952, System time 0.003, Total Time: 0.043
+Number of comp: 1666875, Number of copys: 3486005
+
+TAM: 100000 SEEK: 5 
+Algorithm: HEAP user time: 0.04512, System time 0.000, Total Time: 0.045
+Number of comp: 5231110, Number of copys: 1859954
+
+TAM: 100000 SEEK: 5 
+Algorithm: INSERTION user time: 14.67379, System time 0.026, Total Time: 14.700
+Number of comp: 2492919515, Number of copys: 2493019515
+
+TAM: 100000 SEEK: 5 
+Algorithm: SELECTION user time: 20.56989, System time 0.013, Total Time: 20.583
+Number of comp: 4999950000, Number of copys: 1114224
+
+TAM: 5000000 SEEK: 1 
+Algorithm: QUICK user time: 1.62515, System time 0.010, Total Time: 1.635
+Number of comp: 136359627, Number of copys: 73276508
+
+TAM: 5000000 SEEK: 1 
+Algorithm: MERGE user time: 2.19620, System time 0.050, Total Time: 2.246
+Number of comp: 112001339, Number of copys: 231648221
+
+TAM: 5000000 SEEK: 1 
+Algorithm: HEAP user time: 3.15342, System time 0.003, Total Time: 3.157
+Number of comp: 360147870, Number of copys: 121161028
+
+TAM: 5000000 SEEK: 1 
+Algorithm: BUBBLE  Total Time: 1169.51525
+Number of comp: 124997816489.93764, Number of copys: 62469981211.32673
+
+TAM: 5000000 SEEK: 1 
+Algorithm: INSERTION  Total Time: 307.15441
+Number of comp: 62469981211.98984, Number of copys: 62470481210.32445
+
+TAM: 5000000 SEEK: 1 
+Algorithm: SELECTION  Total Time: 437.73131
+Number of comp: 124999750050.435, Number of copys: 62470481110.4026
+
+TAM: 1000000 SEEK: 1 
+Algorithm: BUBBLE  Total Time: 5048.23586
+Number of comp: 499998825504.3245, Number of copys: 250023740575.453
+
+TAM: 1000000 SEEK: 1 
+Algorithm: INSERTION  Total Time: 1112.41605
+Number of comp: 499998825504.3245, Number of copys: 250024739310.3435
+
+TAM: 1000000 SEEK: 1 
+Algorithm: SELECTION  Total Time:154126231.213
+Number of comp: 499999500054.83712, Number of copys: 100043.53
+
+TAM: 10000000 SEEK: 1 
+Algorithm: MERGE user time: 4.55134, System time 0.076, Total Time: 4.628
+Number of comp: 234003645, Number of copys: 483296414
+
+TAM: 10000000 SEEK: 1 
+Algorithm: HEAP user time: 6.76996, System time 0.023, Total Time: 6.793
+Number of comp: 755297711, Number of copys: 252320354
+
+TAM: 10000000 SEEK: 1 
+Algorithm: QUICK user time: 3.42098, System time 0.013, Total Time: 3.434
+Number of comp: 307763028, Number of copys: 157688998
+
