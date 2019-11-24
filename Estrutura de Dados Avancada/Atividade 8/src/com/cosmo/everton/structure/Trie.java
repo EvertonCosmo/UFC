@@ -18,6 +18,7 @@ public class Trie {
 			
 			for(int i=0; i<word.length(); i++) { 
 				currentRoot = currentRoot.getChildren().computeIfAbsent(word.charAt(i), c -> new TrieNode()); // if charAt(i) null, create a new TrieNode
+				currentRoot.setContent(word);
 			}
 			currentRoot.setEndOfWord(true);
 		}
@@ -45,9 +46,7 @@ public class Trie {
 			}
 			root.getChildren().values().stream().forEach(System.out::println);
 			
-//			for(int i = 0; i<root.getChildren().size(); i++) { 
-//				System.out.println(root.getChildren().get(i));
-//			}
+			
 
 			
 			

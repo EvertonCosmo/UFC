@@ -13,7 +13,8 @@ public class Main {
 		trie.insert("Everton ");
 		trie.insert("Crime");
 		trie.insert("Antonio");
-		
+		trie.insert("Basa");
+			
 		trie.show();
 		System.out.println(trie.search("Cosmo"));
 	}
