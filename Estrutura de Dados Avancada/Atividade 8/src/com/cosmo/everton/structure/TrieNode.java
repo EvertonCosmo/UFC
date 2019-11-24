@@ -4,10 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TrieNode {
-	private  Map<Character, TrieNode> children;
+	private  Map<Character, TrieNode> children = new HashMap<Character,TrieNode>();
 	boolean endOfWord;
 	public TrieNode() { 
-		children = new HashMap<Character,TrieNode>();
 	}
 	public TrieNode getChild(char ch) {
 		return children.get(ch);
