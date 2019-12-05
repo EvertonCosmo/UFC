@@ -1,13 +1,11 @@
 package com.cosmo.everton.structure;
 
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.Collections;
+
+import java.util.PriorityQueue;
 
 public class Heap {
 
-	ArrayList<Node> nodes = new ArrayList<Node>();
-
-	public Heap ( List<Node> nodes2 ) { 
-		nodes2 = nodes2;
-	}
+	PriorityQueue<Node> Heap = new PriorityQueue<Node>(Collections.reverseOrder());
 }

@@ -13,10 +13,22 @@ public class Main {
 		Heap heap;
 		List<String> words;
 		List <Node> nodes;
-		words = FileManager.readFile("text.txt");
-		nodes = StructureManager.createNodes(words);
-		StructureManager.verifyRepeated(words);
-		heap = new Heap(nodes);
+		List<String> patterns;
+		
+		
+		patterns = FileManager.readFile("text.txt","patternsList");
+		words = FileManager.readFile("text.txt", "wordsArray");
+//		System.out.println(words);
+		
+//		nodes = StructureManager.createNodes(words);
+		for(String word: words) { 
+			for(String pattern : patterns) { 
+			StructureManager.verifyRepeated(word,pattern);
+			System.out.println("Word : "+word);
+			System.out.println("Pattern: " +pattern);
+			}
+		}
+//		heap = new Heap(nodes);
 	}
 
 }

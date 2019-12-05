@@ -8,8 +8,8 @@ import java.util.List;
 
 public abstract class FileManager {
 
-
-	public static List<String> readFile(String filename) {
+//	{typeReturn : splitWords, wordsArray}
+	public static List<String> readFile(String filename,String typeReturn) {
 		try { 
 			ArrayList<String> arraySplit = new ArrayList<String>();
 			BufferedReader reader = new BufferedReader(new FileReader(filename));
@@ -19,15 +19,23 @@ public abstract class FileManager {
 					stringToSplit = line;
 				
 			}
-			String[] currencies = stringToSplit.split(" ");
-			for (int i = 0; i < currencies.length; i++) {
-				arraySplit.add(currencies[i]);
-			}
-				
 		
-			System.out.println("FILE: "+filename+"\n");
-			reader.close();
-			return arraySplit;
+			if(typeReturn.equals("patternsList")) { 
+				String[] currencies = stringToSplit.split(" ");
+				for (int i = 0; i < currencies.length; i++) {
+					arraySplit.add(currencies[i]);
+				}
+				
+			
+				System.out.println("FILE: "+filename+"\n");
+				reader.close();
+				return arraySplit;
+			}else if(typeReturn.equals("wordsArray")) { 
+				
+				arraySplit.add(StructureManager.RemoveRepeated(stringToSplit));
+				return arraySplit;
+			}
+		
 		}catch(Exception e) { 
 			System.err.format("Exception reading file '%s' ",filename);
 			e.printStackTrace();
