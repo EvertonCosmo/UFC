@@ -1,5 +1,6 @@
 package com.cosmo.everton.main;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.cosmo.everton.structure.Heap;
@@ -12,23 +13,23 @@ public class Main {
 	public static void main(String[] args) {
 		Heap heap;
 		List<String> words;
-		List <Node> nodes;
+		List <Node> nodes = new ArrayList<Node>();
 		List<String> patterns;
 		
 		
 		patterns = FileManager.readFile("text.txt","patternsList");
 		words = FileManager.readFile("text.txt", "wordsArray");
-//		System.out.println(words);
-		
-//		nodes = StructureManager.createNodes(words);
+		System.out.println("Texto: "+words);
+		System.out.println("Padrão: "+patterns);
+
 		for(String word: words) { 
 			for(String pattern : patterns) { 
-			StructureManager.verifyRepeated(word,pattern);
-			System.out.println("Word : "+word);
-			System.out.println("Pattern: " +pattern);
+			nodes.add(StructureManager.verifyRepeated(word, pattern));
 			}
 		}
-//		heap = new Heap(nodes);
+		System.out.println();
+		heap = new Heap(nodes);
+		System.out.println(heap.toString());
 	}
 
 }
