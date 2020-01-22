@@ -1,0 +1,15 @@
+{
+  "name": "edav",
+  "version": "1.0.0",
+  "description": "trabalho de EDA V",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Everton Cosmo",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
