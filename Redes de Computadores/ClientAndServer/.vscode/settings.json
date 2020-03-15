@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "winsock2.h": "c",
+        "inet.h": "c",
+        "limits": "c",
+        "socket.h": "c"
+    }
+}
